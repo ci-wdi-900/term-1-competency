@@ -1,6 +1,6 @@
 const {
   fizzBuzzSingleNumber,
-  rotateLetters,
+  letterOffsetter,
   addToMultiDigitNumbers,
   singlesOnly,
   uppercaseCount,
@@ -39,41 +39,23 @@ describe('fizzBuzzSingleNumber', () => {
   })
 })
 
-describe('rotateLetters', () => {
+describe('letterOffsetter', () => {
   it(`given a first parameter number of 1, returns a string based on the given second parameter string where every letter has been replaced by the following letter in the alphabet`, () => {
-    expect(rotateLetters(1, 'hello')).toBe('ifmmp');
-    expect(rotateLetters(1, 'hi')).toBe('ij');
-    expect(rotateLetters(1, 'colin')).toBe('dpmjo');
+    expect(letterOffsetter(1, 'hello')).toBe('ifmmp');
+    expect(letterOffsetter(1, 'hi')).toBe('ij');
+    expect(letterOffsetter(1, 'colin')).toBe('dpmjo');
   })
 
   it(`given a first parameter number of 2, returns a string based on the given second parameter string where every letter has been replaced by the letter that's two after it in the alphabet`, () => {
-    expect(rotateLetters(2, 'hello')).toBe('jgnnq');
-    expect(rotateLetters(2, 'hi')).toBe('jk');
-    expect(rotateLetters(2, 'colin')).toBe('eqnkp');
+    expect(letterOffsetter(2, 'hello')).toBe('jgnnq');
+    expect(letterOffsetter(2, 'hi')).toBe('jk');
+    expect(letterOffsetter(2, 'colin')).toBe('eqnkp');
   })
 
-  it(`can handle negatively-signed offsets`, () => {
-    expect(rotateLetters(-4, 'hello')).toBe('dahhk');
-    expect(rotateLetters(-6, 'hi')).toBe('bc');
-    expect(rotateLetters(-2, 'colin')).toBe('amjgl');
-  })
-
-  it(`can wrap once around the alphabet forwards`, () => {
-    expect(rotateLetters(1, 'zebra')).toBe('afcsb');
-    expect(rotateLetters(13, 'thanks')).toBe('gunaxf');
-    expect(rotateLetters(25, 'colin')).toBe('bnkhm');
-  })
-
-  it(`can wrap multiple times around the alphabet forwards`, () => {
-    expect(rotateLetters(27, 'zebra')).toBe('afcsb');
-    expect(rotateLetters(28, 'zebra')).toBe('bgdtc');
-    expect(rotateLetters(100, 'thanks')).toBe('pdwjgo');
-  })
-
-  it(`can wrap backwards`, () => {
-    expect(rotateLetters(-1, 'zebra')).toBe('ydaqz');
-    expect(rotateLetters(-28, 'zebra')).toBe('xczpy');
-    expect(rotateLetters(-100, 'thanks')).toBe('xlerow');
+  it(`can wrap once around the alphabet`, () => {
+    expect(letterOffsetter(1, 'zebra')).toBe('afcsb');
+    expect(letterOffsetter(13, 'thanks')).toBe('gunaxf');
+    expect(letterOffsetter(25, 'colin')).toBe('bnkhm');
   })
 });
 
@@ -216,37 +198,6 @@ describe('addToMultiDigitNumbers', () => {
       '308',
       '8',
       '1005'
-    ]
-
-    expect(addToMultiDigitNumbers(1, numbers1)).toEqual(result1);
-    expect(addToMultiDigitNumbers(5, numbers2)).toEqual(result2);
-  })
-
-  it(`can handle negative numbers`, () => {
-    const numbers1 = [
-      '-48',
-      '-5',
-      '-0',
-    ]
-
-    const result1 = [
-      '-47',
-      '-5',
-      '-0',
-    ]
-
-    const numbers2 = [
-      '-3',
-      '-303',
-      '-8',
-      '-1000'
-    ]
-
-    const result2 = [
-      '-3',
-      '-298',
-      '-8',
-      '-995'
     ]
 
     expect(addToMultiDigitNumbers(1, numbers1)).toEqual(result1);
