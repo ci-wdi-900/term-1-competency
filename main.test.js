@@ -40,22 +40,16 @@ describe('fizzBuzzSingleNumber', () => {
 })
 
 describe('letterOffsetter', () => {
-  it(`given a first parameter number of 1, returns a string based on the given second parameter string where every letter has been replaced by the following letter in the alphabet`, () => {
-    expect(letterOffsetter(1, 'hello')).toBe('ifmmp');
-    expect(letterOffsetter(1, 'hi')).toBe('ij');
-    expect(letterOffsetter(1, 'colin')).toBe('dpmjo');
-  })
-
-  it(`given a first parameter number of 2, returns a string based on the given second parameter string where every letter has been replaced by the letter that's two after it in the alphabet`, () => {
-    expect(letterOffsetter(2, 'hello')).toBe('jgnnq');
-    expect(letterOffsetter(2, 'hi')).toBe('jk');
-    expect(letterOffsetter(2, 'colin')).toBe('eqnkp');
+  it(`returns a string based on the given string where every letter has been replaced by the following letter in the alphabet`, () => {
+    expect(letterOffsetter('hello')).toBe('ifmmp');
+    expect(letterOffsetter('hi')).toBe('ij');
+    expect(letterOffsetter('colin')).toBe('dpmjo');
   })
 
   it(`can wrap once around the alphabet`, () => {
-    expect(letterOffsetter(1, 'zebra')).toBe('afcsb');
-    expect(letterOffsetter(13, 'thanks')).toBe('gunaxf');
-    expect(letterOffsetter(25, 'colin')).toBe('bnkhm');
+    expect(letterOffsetter('zzz')).toBe('aaa');
+    expect(letterOffsetter('zebra')).toBe('afcsb');
+    expect(letterOffsetter('frazzled')).toBe('gsbaamfe');
   })
 });
 
